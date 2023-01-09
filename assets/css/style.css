@@ -453,7 +453,6 @@ h6 {
   text-shadow: -1px 0 2px #2f4d5a;
 }
 
-
 #hero h2 {
   color: #fff;
   margin-bottom: 50px;
@@ -1497,7 +1496,7 @@ section {
 }
 
 #about .about-img img {
-  margin-left: -15px;
+  margin-left: 20px;
   max-width: 100%;
 }
 
