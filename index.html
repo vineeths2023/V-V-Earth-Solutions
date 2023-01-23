@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/water-favicon-1.png" rel="icon">
+  <link href="assets/img/water-favicon-2.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -33,6 +33,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -503,7 +506,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="submit-form" action="" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -513,15 +516,16 @@
                 </div>
               </div>
               <div class="form-group mt-3">
+                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Your Mobile No" required>
+              </div>
+              <div class="form-group mt-3">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
@@ -617,6 +621,26 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbzAgtgB_6Yd22lVeJtNAqTvfb68E07koFQAZbsCNA93GtQD516eEjt1JndKdzwawHXPNw/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Message Sent successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+</script>
 
 </body>
 
